@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesu Law</title>
+    <style>
+        :root {
+            --accent-color: #FF5400;
+            --text-color: #333;
+            --text-color-dark: #000;
+            --text-color-light: #666;
+            --text-color-lighter: #cacaca;
+            --body-font: "JetBrains Mono", monospace;
+            --heading-font: "Hedvig Letters Serif", serif;
+
+            --black: #000;
+            --white: #fff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: var(--body-font);
+            font-optical-sizing: auto;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .landing-header {
+            margin-top: 120px;
+            margin-left: -3px;
+        }
+
+        .text-lighter {
+            color: var(--text-color-lighter);
+        }
+
+        .logo {
+            max-width: 240px;
+        }
+
+        h1 {
+            font-size: 44px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading-font);
+            font-optical-sizing: auto;
+            font-weight: 400;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+        }
+
+        .header-item {
+            color: var(--text-color);
+            margin: 0 20px;
+        }
+
+        .header-item:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            position: sticky;
+            top: 0;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            vertical-align: middle;
+            justify-content: space-between;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 0 48px 0 39px;
+            align-items: center;
+        }
+
+        .footer-item {
+            display: inline-block;
+            margin: 0 20px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .footer-item:hover {
+            color: var(--accent-color);
+        }
+
+
+        .layout {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-container {
+            flex-basis: 25%;
+            flex-grow: 1;
+            background-color: #000;
+            background: linear-gradient(180deg, #0E2020 26.04%, #F1F9F9 100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .right-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 3;
+            margin: 0 auto;
+            padding: 0 40px 48px 80px;
+            height: calc(100vh - 107px);
+            min-height: 640px;
+        }
+
+        .contact {
+            padding: 8px 20px 8px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            max-width: 600px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li::before {
+            content: ">";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .accent {
+            color: deepred;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            max-width: 440px;
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: var(--black);
+            color: #fff;
+            cursor: pointer;
+            font-family: var(--body-font);
+            font-size: 16px;
+        }
+
+        .popup button:hover {
+            background: var(--accent-color);
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 20px 10px 20px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: var(--accent-color);
+        }
+
+        .card {
+            max-width: 720px;
+            margin: 60px auto;
+        }
+
+        .section-2 {
+            margin: 100px 0 100px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup" id="disclaimerPopup">
+        <div class="popup-content">
+            <p>This website is for informational purposes only and does not constitute legal advice. By continuing to
+                use this site, you acknowledge that you have read and understood this disclaimer.</p>
+            <button onclick="closePopup()">Accept</button>
+        </div>
+    </div>
+    <div class="layout">
+
+
+        <div class="left-container">
+            <img class="logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
+            <div class="contact">
+                <ul>
+                    <li>get in touch</li>
+                </ul>
+                <p>D-20 Gulmohar Park, New Delhi - 110049
+                    <br>+91 99530 16904
+                    <br>contact@tesulaw.com
+            </div>
+        </div>
+
+        <div class="right-container">
+
+            <header>
+                <div class="header-item">ABOUT</div>
+                <div class="header-item">TEAM</div>
+                <div class="header-item">BLOG</div>
+            </header>
+
+            <h1 class="landing-header">tesu is a law firm<br> that gets tech.</h1>
+            <ul>
+                <li>We're a new-age law firm specialising in startup and investor advisory, venture capital funding,
+                    debt financing, intellectual property protection, and negotiating high-value contracts.<br><span
+                        class="text-lighter">---</span>
+                <li>We help new and established businesses, founders, investors, and artists who are looking for
+                    early
+                    or mid-stage legal representation.<br><span class="text-lighter">---</span>
+                <li>We think that the billable hour leads to an incentive-outcome mismatch between clients and their
+                    counsel.<br><span class="text-lighter">---</span>
+                <li>Focus on your business – we'll take care of the legal aspects.
+            </ul>
+
+        </div>
+
+    </div>
+
+    <footer>
+        2024 TESU LAW
+        <div>
+            <a class="footer-item" href="#">ABOUT</a>
+            <a class="footer-item" href="#">TEAM</a>
+            <a class="footer-item" href="#">BLOG</a>
+        </div>
+
+    </footer>
+
+    <div class="section-2">
+
+        <div class="card">
+            <h2>our team</h2>
+            <p>Raghav Bansal</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+
+            <p>Pranav Butalia</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+        </div>
+
+        <div class="card">
+            <h2>want to work with us?</h2>
+            <p>Get in touch with <span id="email">contact@tesulaw.com</span> and tell us what you'd like to do.
+                Work samples available on request.</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+            <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
+        </div>
+
+    </div>
+    <script>
+        function closePopup() {
+            document.getElementById('disclaimerPopup').style.display = 'none';
+        }
+
+        function copyEmail() {
+            var email = document.getElementById('email');
+            var copyemail = document.getElementById('copyemail');
+            var range = document.createRange();
+            range.selectNode(email);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            copyemail.innerHTML = "Email copied to clipboard.";
+            copyemail.style.background = "none";
+            copyemail.style.paddingLeft = "0";
+            copyemail.style.marginLeft = "0";
+        }
+    </script>
+</body>
+
+</html>
