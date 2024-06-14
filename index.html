@@ -20,15 +20,21 @@
             --body-font: "JetBrains Mono", monospace;
             --heading-font: "Hedvig Letters Serif", serif;
 
+
+            --gradient: linear-gradient(180deg, #0E2020 26.04%, #F1F9F9 100%);
             --black: #000;
             --white: #fff;
+        }
+
+        .mobile-only{
+            display: none;
         }
 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: #f5f5f5;
             color: #333;
             font-family: var(--body-font);
             font-optical-sizing: auto;
@@ -113,8 +119,7 @@
         .left-container {
             flex-basis: 25%;
             flex-grow: 1;
-            background-color: #000;
-            background: linear-gradient(180deg, #0E2020 26.04%, #F1F9F9 100%);
+            background: var(--gradient);
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -234,6 +239,39 @@
             margin: 100px 0 100px 0;
 
         }
+
+        @media (max-width: 720px) { 
+
+        .mobile-only{
+            display: block;
+        }
+
+        .desktop-only{
+            display: none;
+        }
+
+        .layout {
+            flex-direction: column;
+        }
+
+        .left-container{
+            background: var(--white);
+            margin: 16px 16px 0 16px;
+        }
+
+        .right-container{
+            padding: 20px 20px 48px 40px;
+            background: var(--white);
+            margin: 0 16px 16px 16px;
+        }
+
+        body{
+            background: var(--gradient) !important;
+        }
+
+    }
+
+
     </style>
 </head>
 
@@ -249,7 +287,8 @@
 
 
         <div class="left-container">
-            <img class="logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
+            <img class="desktop-only logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
+            <img class="mobile-only logo" src="tesulaw-logo-horizontal-black-vector.svg" alt="Tesu Law Logo">
             <div class="contact">
                 <ul>
                     <li>get in touch</li>
