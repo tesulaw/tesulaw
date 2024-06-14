@@ -239,6 +239,39 @@
             margin: 100px 0 100px 0;
         }
 
+        #typewriter {
+            transition: .2s;
+        }
+
+        .fadeindown{
+            animation: fadeindown .5s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeindown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1{
+            animation-delay: 3.5s;
+        }
+
+        .delay-2{
+            animation-delay: .6s;
+        }
+
+        .delay-3{
+            animation-delay: .9s;
+        }
+
         @media (max-width: 720px) {
 
             .mobile-only {
@@ -255,7 +288,7 @@
 
             .left-container {
                 background: none;
-                margin: 16px 16px 0 16px;
+                margin: 0 16px 0 16px;
             }
 
             .right-container {
@@ -270,7 +303,7 @@
                 background: none;
             }
 
-            html{
+            html {
                 background: var(--gradient);
             }
 
@@ -292,6 +325,11 @@
 
             .section-2 {
                 margin: 16px 0;
+            }
+
+            .landing-header {
+                margin-left: -2px;
+                margin-top: 12px;
             }
 
         }
@@ -329,8 +367,8 @@
                 <div class="header-item">BLOG</div>
             </header>
 
-            <h1 class="landing-header">tesu is a law firm that gets tech.</h1>
-            <ul>
+            <h1 id="typewriter" class="landing-header">tesu is a law firm that gets tech.</h1>
+            <ul class="fadeindown delay-1">
                 <li>We're a new-age law firm specialising in startup and investor advisory, venture capital funding,
                     debt financing, intellectual property protection, and negotiating high-value contracts.<br><span
                         class="text-lighter">---</span>
@@ -384,6 +422,7 @@
     <script>
         function closePopup() {
             document.getElementById('disclaimerPopup').style.display = 'none';
+            typeWriter();
         }
 
         function copyEmail() {
@@ -400,6 +439,30 @@
             copyemail.style.paddingLeft = "0";
             copyemail.style.marginLeft = "0";
         }
+
+        var typeBox = document.getElementById("typewriter");
+        var txt = typeBox.innerHTML;
+        typeBox.innerHTML = "";
+        var i = 0;
+        var speed = 50;
+
+        function typeWriter() {
+            if (i < txt.length) {
+                typeBox.innerHTML += txt.charAt(i);
+                if (txt.charAt(i) == ".") {
+                    speed = 1000;
+                } else if (txt.charAt(i) == " ") {
+                    speed = 100;
+                }
+                else {
+                    speed = 50;
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+
+            }
+        }
+
     </script>
 </body>
 
