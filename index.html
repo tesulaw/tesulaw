@@ -26,7 +26,7 @@
             --white: #fff;
         }
 
-        .mobile-only{
+        .mobile-only {
             display: none;
         }
 
@@ -237,41 +237,60 @@
 
         .section-2 {
             margin: 100px 0 100px 0;
-
         }
 
-        @media (max-width: 720px) { 
+        @media (max-width: 720px) {
 
-        .mobile-only{
-            display: block;
+            .mobile-only {
+                display: block;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .layout {
+                flex-direction: column;
+            }
+
+            .left-container {
+                background: var(--white);
+                margin: 16px 16px 0 16px;
+            }
+
+            .right-container {
+                padding: 20px 20px 48px 40px;
+                background: var(--white);
+                margin: 0 16px 16px 16px;
+                min-height: auto;
+            }
+
+            body {
+                font-size: 14px;
+                background: var(--gradient);
+            }
+
+            footer {
+                height: 48px;
+                padding: 0 8px 0 16px;
+            }
+
+            .footer-item {
+                margin: 0 12px;
+            }
+
+            .card {
+                background-color: var(--white);
+                max-width: none;
+                margin: 16px;
+                padding: 4px 20px 20px 20px;
+            }
+
+            .section-2 {
+                margin: 16px 0;
+            }
+
         }
-
-        .desktop-only{
-            display: none;
-        }
-
-        .layout {
-            flex-direction: column;
-        }
-
-        .left-container{
-            background: var(--white);
-            margin: 16px 16px 0 16px;
-        }
-
-        .right-container{
-            padding: 20px 20px 48px 40px;
-            background: var(--white);
-            margin: 0 16px 16px 16px;
-        }
-
-        body{
-            background: var(--gradient) !important;
-        }
-
-    }
-
-
     </style>
 </head>
 
@@ -289,7 +308,7 @@
         <div class="left-container">
             <img class="desktop-only logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
             <img class="mobile-only logo" src="tesulaw-logo-horizontal-black-vector.svg" alt="Tesu Law Logo">
-            <div class="contact">
+            <div class="contact desktop-only">
                 <ul>
                     <li>get in touch</li>
                 </ul>
@@ -301,7 +320,7 @@
 
         <div class="right-container">
 
-            <header>
+            <header class="desktop-only">
                 <div class="header-item">ABOUT</div>
                 <div class="header-item">TEAM</div>
                 <div class="header-item">BLOG</div>
@@ -317,7 +336,12 @@
                     or mid-stage legal representation.<br><span class="text-lighter">---</span>
                 <li>We think that the billable hour leads to an incentive-outcome mismatch between clients and their
                     counsel.<br><span class="text-lighter">---</span>
-                <li>Focus on your business – we'll take care of the legal aspects.
+                <li>Focus on your business – we'll take care of the legal aspects.<br><span
+                        class="mobile-only text-lighter">---</span>
+                <li class="mobile-only">get in touch</li>
+                <p class="mobile-only">D-20 Gulmohar Park, New Delhi - 110049
+                    <br class="mobile-only">+91 99530 16904
+                    <br class="mobile-only">contact@tesulaw.com
             </ul>
 
         </div>
@@ -325,7 +349,7 @@
     </div>
 
     <footer>
-        2024 TESU LAW
+        TESU LAW
         <div>
             <a class="footer-item" href="#">ABOUT</a>
             <a class="footer-item" href="#">TEAM</a>
