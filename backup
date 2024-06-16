@@ -1,0 +1,20 @@
+    <div class="section-2">
+
+        <div class="card">
+            <h2>our team</h2>
+            <p>Raghav Bansal</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+
+            <p>Pranav Butalia</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+        </div>
+
+        <div class="card">
+            <h2>want to work with us?</h2>
+            <p>Get in touch with <span id="email">contact@tesulaw.com</span> and tell us what you'd like to do.
+                Work samples available on request.</p>
+            <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+            <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
+        </div>
+
+    </div>
