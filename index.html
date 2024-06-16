@@ -26,6 +26,10 @@
             --white: #fff;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .mobile-only {
             display: none;
         }
@@ -50,6 +54,7 @@
         .landing-header {
             margin-top: 120px;
             margin-left: -3px;
+            color: var(--text-color-light);
         }
 
         .text-lighter {
@@ -62,6 +67,13 @@
 
         .logo {
             max-width: 240px;
+        }
+
+        .anchor {
+            display: block;
+            position: relative;
+            top: -60px;
+            visibility: hidden;
         }
 
         h1 {
@@ -258,7 +270,7 @@
         }
 
         .fadeindown {
-            animation: fadeindown .5s;
+            animation: fadeindown .5s ease-out;
             animation-fill-mode: forwards;
             opacity: 0;
         }
@@ -276,7 +288,7 @@
         }
 
         .delay-1 {
-            animation-delay: 3.5s;
+            animation-delay: .3s;
         }
 
         .delay-2 {
@@ -287,14 +299,29 @@
             animation-delay: .9s;
         }
 
-        .profile-card{
+        .profile-card {
             display: flex;
             flex-direction: row;
             margin-bottom: 40px;
         }
 
-        .profile-text{
+        .profile-text {
             padding: 0 0 0 20px;
+        }
+
+        .anim-text-in {
+            animation: text-in 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes text-in {
+            from {
+                color: var(--accent-color);
+            }
+
+            to {
+                color: var(--text-color-dark);
+            }
         }
 
         @media (max-width: 720px) {
@@ -319,7 +346,7 @@
 
             .right-container {
                 position: relative;
-                padding: 20px 20px 48px 40px;
+                padding: 20px 20px 32px 40px;
                 background: var(--white);
                 margin: 0 16px 16px 16px;
                 height: auto;
@@ -359,11 +386,11 @@
                 margin-top: 12px;
             }
 
-            .profile-card{
+            .profile-card {
                 flex-direction: column;
             }
 
-            .profile-text{
+            .profile-text {
                 padding: 0;
             }
         }
@@ -378,6 +405,17 @@
             <button onclick="closePopup()">Accept</button>
         </div>
     </div>
+
+    <footer>
+        TESU LAW
+        <div>
+            <a href="#about" class="footer-item" href="#">ABOUT</a>
+            <a href="#team" class="footer-item" href="#">TEAM</a>
+            <a href="#contact" class="footer-item" href="#">CONTACT</a>
+        </div>
+
+    </footer>
+
     <div class="layout">
 
 
@@ -395,14 +433,9 @@
 
         <div class="right-container">
 
-            <header class="desktop-only">
-                <div class="header-item">ABOUT</div>
-                <div class="header-item">TEAM</div>
-                <div class="header-item">BLOG</div>
-            </header>
-
-            <h1 id="typewriter" class="landing-header">tesu is a law firm<span class="desktop-only"><br></span> that
-                gets tech.</h1>
+            <div class="anchor" id="about"></div>
+            <h1 class="landing-header">tesu is a law firm<span class="desktop-only"><br></span> that
+                gets <span id="domain"></span></h1>
             <ul class="fadeindown delay-1">
                 <li>We're a new-age law firm specialising in startup and investor advisory, venture capital funding,
                     debt financing, intellectual property protection, and negotiating high-value contracts.<br><span
@@ -421,6 +454,7 @@
             </ul>
 
             <div class="card">
+                <div class="anchor" id="team"></div>
                 <h1>our team</h1>
                 <div class="profile-card">
                     <img class="profile-photo" src="photo.jpg" alt="Raghav Bansal">
@@ -446,8 +480,10 @@
                 </div>
             </div>
             <div class="card">
+                <div class="anchor" id="contact"></div>
                 <h1>want to work with us?</h1>
-                <p>Get in touch with <span class="text-accent" id="email">contact@tesulaw.com</span> and tell us what you'd like to do.
+                <p>Get in touch with <span class="text-accent" id="email">contact@tesulaw.com</span> and tell us what
+                    you'd like to do.
                     Work samples available on request.</p>
                 <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
                 <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
@@ -456,16 +492,6 @@
         </div>
 
     </div>
-
-    <footer>
-        TESU LAW
-        <div>
-            <a class="footer-item" href="#">ABOUT</a>
-            <a class="footer-item" href="#">TEAM</a>
-            <a class="footer-item" href="#">BLOG</a>
-        </div>
-
-    </footer>
 
 
     <script>
@@ -511,6 +537,38 @@
 
         //     }
         // }
+
+        var typeBox = document.getElementById("domain");
+        var texts = ["tech.", "business.", "art.", "finance."];
+        var currentTextIndex = 0;
+        var currentText = texts[currentTextIndex];
+        var i = 0;
+        var speed = 50;
+
+        document.onload = function () {
+            typeWriter();
+        };
+
+        function typeWriter() {
+            if (i < currentText.length) {
+                typeBox.innerHTML += '<span class="anim-text-in">' + currentText.charAt(i) + '</span>';
+                if (currentText.charAt(i) == ".") {
+                    speed = 2000;
+                } else if (currentText.charAt(i) == " ") {
+                    speed = 100;
+                } else {
+                    speed = 60;
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                i = 0;
+                typeBox.innerHTML = "";
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                currentText = texts[currentTextIndex];
+                setTimeout(typeWriter, 100);
+            }
+        }
 
     </script>
 </body>
