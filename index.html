@@ -563,7 +563,7 @@
 
         function typeWriter() {
             if (i < currentText.length) {
-                typeBox.innerHTML += '<span class="anim-text-in">' + currentText.charAt(i) + '</span>';
+                typeBox.innerHTML += '<span class="anim-text-in" style="animation-delay: ' + (.3+(0.05 * i)) + 's">' + currentText.charAt(i) + '</span>';
                 if (currentText.charAt(i) == ".") {
                     speed = 2000;
                 } else if (currentText.charAt(i) == " ") {
