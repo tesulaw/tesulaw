@@ -18,3 +18,29 @@
         </div>
 
     </div>
+
+
+    <li>We think that the billable hour leads to an incentive-outcome mismatch between clients and their
+        counsel.
+        <br>
+        <span class="text-lighter">---</span>
+    <li>Focus on your business – we'll take care of the legal aspects.
+
+
+
+        <div class="clock">
+            <div class="hour"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+        </div>
+
+
+        <footer>
+            TESU LAW
+            <div>
+                <a href="#about" class="footer-item" href="#">ABOUT</a>
+                <a href="#team" class="footer-item" href="#">TEAM</a>
+                <a href="#contact" class="footer-item" href="#">CONTACT</a>
+            </div>
+
+        </footer>

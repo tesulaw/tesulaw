@@ -22,6 +22,10 @@
             --heading-font: "Hedvig Letters Serif", serif;
 
 
+            --toobigspacing: 40px;
+            --header-height: 60px;
+            --left-width: 360px;
+
             --gradient: linear-gradient(180deg, #0E2020 26.04%, #F1F9F9 100%);
             --black: #000;
             --white: #fff;
@@ -116,7 +120,7 @@
         footer {
             position: sticky;
             top: 0;
-            height: 60px;
+            height: var(--header-height);
             display: flex;
             flex-direction: row;
             vertical-align: middle;
@@ -142,28 +146,23 @@
         .layout {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
         }
 
         .left-container {
             position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            flex-basis: 25%;
-            flex-grow: 1;
+            flex-basis: var(--left-width);
             background: var(--gradient);
             padding: 20px;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .right-container {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            padding: 0 40px 48px 30%;
-            min-height: 640px;
+            margin-left: calc(var(--left-width) + 300px);
+            max-width: 720px;
         }
 
         .contact {
@@ -178,6 +177,7 @@
 
         li {
             list-style: none;
+            padding-bottom: 12px;
         }
 
         li::before {
@@ -398,6 +398,24 @@
                 padding: 0;
             }
         }
+
+        @media (min-width: 1920px) {
+            .layout {
+                width: 1920px;
+                margin: var(--toobigspacing) auto;
+            }
+
+            .left-container {
+                position: fixed;
+                border-radius: 12px;
+                height: calc(100vh - (2*var(--toobigspacing)));
+                margin-left: auto;
+            }
+
+            .right-container {
+                margin-left: calc(var(--left-width) + 360px);
+            }
+        }
     </style>
 </head>
 
@@ -410,16 +428,6 @@
         </div>
     </div>
 
-    <footer>
-        TESU LAW
-        <div>
-            <a href="#about" class="footer-item" href="#">ABOUT</a>
-            <a href="#team" class="footer-item" href="#">TEAM</a>
-            <a href="#contact" class="footer-item" href="#">CONTACT</a>
-        </div>
-
-    </footer>
-
     <div class="layout">
 
 
@@ -427,44 +435,49 @@
             <img class="logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
             <div class="contact desktop-only">
 
-                <div class="clock">
-                    <div class="hour"></div>
-                    <div class="min"></div>
-                    <div class="sec"></div>
 
-                </div>
-                <p></p>
-                <p>New Delhi, India</p>
+
+
                 <ul>
-                    <li>get in touch</li>
+                    <li>
+                        <b>get in touch</b>
+                        <p>Office Addresss
+                            <br>D-20 Gulmohar Park, New Delhi - 110049
+                            <br>(+91) 99530 16904
+                        <p>contact@tesulaw.com
+                    </li>
+
                 </ul>
-                <p>D-20 Gulmohar Park, New Delhi - 110049
-                    <br>(+91) 99530 16904
-                    <br>contact@tesulaw.com
+
             </div>
         </div>
 
         <div class="right-container">
 
-            <div class="anchor" id="about"></div>
-            <h1 class="landing-header">tesu is a law firm<span class="desktop-only"><br></span> that
-                gets <span id="domain"> </span></h1>
-            <ul class="fadeindown delay-1">
-                <li>We're a new-age law firm specialising in startup and investor advisory, venture capital funding,
-                    debt financing, intellectual property protection, and negotiating high-value contracts.<br><span
-                        class="text-lighter">---</span>
-                <li>We help new and established businesses, founders, investors, and artists who are looking for
-                    early
-                    or mid-stage legal representation.<br><span class="text-lighter">---</span>
-                <li>We think that the billable hour leads to an incentive-outcome mismatch between clients and their
-                    counsel.<br><span class="text-lighter">---</span>
-                <li>Focus on your business – we'll take care of the legal aspects.<br><span
-                        class="mobile-only text-lighter">---</span>
-                <li class="mobile-only">get in touch</li>
-                <p class="mobile-only">D-20 Gulmohar Park, New Delhi - 110049
-                    <br class="mobile-only">+91 99530 16904
-                    <br class="mobile-only">contact@tesulaw.com
-            </ul>
+            <div class="card">
+                <div class="anchor" id="about"></div>
+                <h1 class="landing-header">tesu is a law firm<span class="desktop-only"><br></span> that
+                    gets <span id="domain"> </span></h1>
+                <ul class="fadeindown delay-1">
+                    <li>We're a new-age law firm experienced in, among others - startup and investor advisory, venture capital funding,
+                        debt financing, intellectual property protection, and negotiating high-value contracts.
+                    <li>We help new and established businesses, founders, investors, and artists who are looking for
+                        early or mid-stage legal representation.
+                    <li class="mobile-only"><b>get in touch</b></li>
+                    <span class="mobile-only">Office Addresss<br>D-20 Gulmohar Park, New Delhi - 110049
+                        <br class="mobile-only">(+91) 99530 16904
+                        <br class="mobile-only">contact@tesulaw.com</span>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="anchor" id="contact"></div>
+                <h1>want to work with us?</h1>
+                <p>Get in touch with <span class="text-accent" id="email">contact@tesulaw.com</span> and tell us what
+                    you'd like to do. Work samples available on request.</p>
+                <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
+                <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
+            </div>
 
             <div class="card">
                 <div class="anchor" id="team"></div>
@@ -491,14 +504,6 @@
                         <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="anchor" id="contact"></div>
-                <h1>want to work with us?</h1>
-                <p>Get in touch with <span class="text-accent" id="email">contact@tesulaw.com</span> and tell us what
-                    you'd like to do. Work samples available on request.</p>
-                <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
-                <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
             </div>
 
         </div>
@@ -563,7 +568,7 @@
 
         function typeWriter() {
             if (i < currentText.length) {
-                typeBox.innerHTML += '<span class="anim-text-in" style="animation-delay: ' + (.3+(0.05 * i)) + 's">' + currentText.charAt(i) + '</span>';
+                typeBox.innerHTML += '<span class="anim-text-in" style="animation-delay: ' + (.3 + (0.05 * i)) + 's">' + currentText.charAt(i) + '</span>';
                 if (currentText.charAt(i) == ".") {
                     speed = 2000;
                 } else if (currentText.charAt(i) == " ") {
