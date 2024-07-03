@@ -18,8 +18,8 @@
             --text-color-dark: #000;
             --text-color-light: #666;
             --text-color-lighter: #cacaca;
-            --body-font: "JetBrains Mono", monospace;
-            --heading-font: "Hedvig Letters Serif", serif;
+            --serif-font: "Hedvig Letters Serif", serif;
+            --sans-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
 
             --toobigspacing: 40px;
@@ -45,12 +45,11 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background: #f5f5f5;
             color: #333;
-            font-family: var(--body-font);
+            font-family: var(--serif-font);
             font-optical-sizing: auto;
             font-weight: 300;
             line-height: 1.4;
@@ -97,7 +96,7 @@
         h4,
         h5,
         h6 {
-            font-family: var(--heading-font);
+            font-family: var(--serif-font);
             font-optical-sizing: auto;
             font-weight: 400;
         }
@@ -210,11 +209,12 @@
 
         .popup {
             position: fixed;
-            top: 0;
+            bottom: 0;
             left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.0);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -224,8 +224,10 @@
         }
 
         .popup-content {
-            max-width: 440px;
-            margin: 60px;
+            position: fixed;
+            right: 0;
+            left: 0;
+            bottom: 0;
             background: var(--text-color-dark);
             padding: 32px;
             border-radius: 8px;
@@ -424,7 +426,7 @@
         <div class="popup-content">
             <p>This website is for informational purposes only and does not constitute legal advice. By continuing to
                 use this site, you acknowledge that you have read and understood this disclaimer.</p>
-            <button onclick="closePopup()">Accept</button>
+            <button onclick="closePopup()">I Acknowledge</button>
         </div>
     </div>
 
@@ -441,9 +443,7 @@
                 <ul>
                     <li>
                         <b>get in touch</b>
-                        <p>Office Addresss
-                            <br>D-20 Gulmohar Park, New Delhi - 110049
-                            <br>(+91) 99530 16904
+                        <p>(+91) 99530 16904
                         <p>contact@tesulaw.com
                     </li>
 
@@ -456,17 +456,17 @@
 
             <div class="card">
                 <div class="anchor" id="about"></div>
-                <h1 class="landing-header">tesu is a law firm<span class="desktop-only"><br></span> that
-                    gets <span id="domain"> </span></h1>
+
                 <ul class="fadeindown delay-1">
-                    <li>We're a new-age law firm experienced in, among others - startup and investor advisory, venture capital funding,
+                    <li>tesu is a law firm that gets <span id="domain"> </span></li>
+                    <li>We're a new-age law firm experienced in, among others - startup and investor advisory, venture
+                        capital funding,
                         debt financing, intellectual property protection, and negotiating high-value contracts.
                     <li>We help new and established businesses, founders, investors, and artists who are looking for
                         early or mid-stage legal representation.
-                    <li class="mobile-only"><b>get in touch</b></li>
-                    <span class="mobile-only">Office Addresss<br>D-20 Gulmohar Park, New Delhi - 110049
-                        <br class="mobile-only">(+91) 99530 16904
-                        <br class="mobile-only">contact@tesulaw.com</span>
+                    <span class="mobile-only"><b>get in touch</b></span>
+                    <span class="mobile-only">(+91) 99530 16904</span>
+                    <span class="mobile-only">contact@tesulaw.com</span>
                 </ul>
             </div>
 
@@ -483,25 +483,22 @@
                 <div class="anchor" id="team"></div>
                 <h1>our team</h1>
                 <div class="profile-card">
-                    <img class="profile-photo" src="photo.jpg" alt="Raghav Bansal">
+                    <img class="profile-photo" src="raghav.jpg" alt="Raghav Bansal">
                     <div class="profile-text">
                         <h2>Raghav Bansal</h2>
                         <p class="text-accent">position at tesu</p>
                         <p>we're a new-age law firm specialising in startup and investor advisory, venture capital
                             funding, debt financing, intellectual property protection, and negotiating high-value
-                            contracts</p>
-                        <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
-                    </div>
+                            contracts</p>                    </div>
                 </div>
                 <div class="profile-card">
-                    <img class="profile-photo" src="photo.jpg" alt="Raghav Bansal">
+                    <img class="profile-photo" src="pranav.jpg" alt="Raghav Bansal">
                     <div class="profile-text">
                         <h2>Pranav Butalia</h2>
                         <p class="text-accent">position at tesu</p>
                         <p>we're a new-age law firm specialising in startup and investor advisory, venture capital
                             funding, debt financing, intellectual property protection, and negotiating high-value
                             contracts</p>
-                        <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
                     </div>
                 </div>
             </div>
