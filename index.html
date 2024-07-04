@@ -283,7 +283,7 @@
             opacity: 0;
         }
 
-        .fadeinup{
+        .fadeinup {
             animation: fadeinup .5s ease-out;
             animation-fill-mode: forwards;
             opacity: 0;
@@ -306,6 +306,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -379,12 +380,21 @@
                 position: relative;
                 padding: 20px 20px 32px 40px;
                 background: var(--white);
-                margin: 0 16px 16px 16px;
+                margin: 16px;
                 height: auto;
             }
 
+            .popup {
+
+            }
+
+            .popup-content {
+                margin: 20px;
+            }
+
+
             body {
-                font-size: 15px;
+                font-size: 16px;
                 background: none;
             }
 
@@ -450,10 +460,16 @@
     <div class="popup" id="disclaimerPopup">
         <div class="popup-content fadeinup delay-4">
             <p>
-                This website is intended to provide users with basic information on tesu law, which is the same as otherwise available on the internet, social media and other public platforms.
-                By accessing this website, you acknowledge that are seeking information about tesu law of your own accord and that there has been no form of solicitation, advertisement or inducement by tesu law or its members.
-                ⁠This website should not be construed as providing any legal advice, nor creating any lawyer-client relationship. Visitors are advised to seek formal legal counsel before acting on any information contained in this website.
-                Links to third-party websites should not be construed as endorsements of, or affiliations with, such websites.
+                This website is intended to provide users with basic information on tesu law, which is the same as
+                otherwise available on the internet, social media and other public platforms.
+                By accessing this website, you acknowledge that are seeking information about tesu law of your own
+                accord and that there has been no form of solicitation, advertisement or inducement by tesu law or its
+                members.
+                ⁠This website should not be construed as providing any legal advice, nor creating any lawyer-client
+                relationship. Visitors are advised to seek formal legal counsel before acting on any information
+                contained in this website.
+                Links to third-party websites should not be construed as endorsements of, or affiliations with, such
+                websites.
             </p>
             <button onclick="closePopup()">I Acknowledge</button>
         </div>
@@ -492,9 +508,8 @@
                         debt financing, intellectual property protection, and negotiating high-value contracts.
                     <li>We help new and established businesses, founders, investors, and artists who are looking for
                         early or mid-stage legal representation.
-                        <span class="mobile-only"><b>get in touch</b></span>
-                        <span class="mobile-only">(+91) 99530 16904</span>
-                        <span class="mobile-only">contact@tesulaw.com</span>
+                        <span class="mobile-only"><li>get in touch</li></span>
+                        <span class="mobile-only"><br>contact@tesulaw.com</span>
                 </ul>
             </div>
 
