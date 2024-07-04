@@ -157,6 +157,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-width: 340px;
         }
 
         .right-container {
@@ -231,6 +232,7 @@
             background: var(--text-color-dark);
             padding: 32px;
             border-radius: 8px;
+            margin: 30px;
         }
 
         .popup button {
@@ -281,12 +283,29 @@
             opacity: 0;
         }
 
+        .fadeinup{
+            animation: fadeinup .5s ease-out;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
         @keyframes fadeindown {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeinup {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -303,6 +322,10 @@
 
         .delay-3 {
             animation-delay: .9s;
+        }
+
+        .delay-4 {
+            animation-delay: 1.2s;
         }
 
         .profile-card {
@@ -348,6 +371,8 @@
                 background: none;
                 margin: 0 16px 0 16px;
                 position: relative;
+                flex-basis: 0;
+                min-width: none;
             }
 
             .right-container {
@@ -423,9 +448,13 @@
 
 <body>
     <div class="popup" id="disclaimerPopup">
-        <div class="popup-content">
-            <p>This website is for informational purposes only and does not constitute legal advice. By continuing to
-                use this site, you acknowledge that you have read and understood this disclaimer.</p>
+        <div class="popup-content fadeinup delay-4">
+            <p>
+                This website is intended to provide users with basic information on tesu law, which is the same as otherwise available on the internet, social media and other public platforms.
+                By accessing this website, you acknowledge that are seeking information about tesu law of your own accord and that there has been no form of solicitation, advertisement or inducement by tesu law or its members.
+                ⁠This website should not be construed as providing any legal advice, nor creating any lawyer-client relationship. Visitors are advised to seek formal legal counsel before acting on any information contained in this website.
+                Links to third-party websites should not be construed as endorsements of, or affiliations with, such websites.
+            </p>
             <button onclick="closePopup()">I Acknowledge</button>
         </div>
     </div>
@@ -443,8 +472,7 @@
                 <ul>
                     <li>
                         <b>get in touch</b>
-                        <p>(+91) 99530 16904
-                        <p>contact@tesulaw.com
+                        <br>contact@tesulaw.com
                     </li>
 
                 </ul>
@@ -464,13 +492,13 @@
                         debt financing, intellectual property protection, and negotiating high-value contracts.
                     <li>We help new and established businesses, founders, investors, and artists who are looking for
                         early or mid-stage legal representation.
-                    <span class="mobile-only"><b>get in touch</b></span>
-                    <span class="mobile-only">(+91) 99530 16904</span>
-                    <span class="mobile-only">contact@tesulaw.com</span>
+                        <span class="mobile-only"><b>get in touch</b></span>
+                        <span class="mobile-only">(+91) 99530 16904</span>
+                        <span class="mobile-only">contact@tesulaw.com</span>
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card fadeindown delay-2">
                 <div class="anchor" id="contact"></div>
                 <h1>want to work with us?</h1>
                 <p>Get in touch with <span class="text-accent" id="email">contact@tesulaw.com</span> and tell us what
@@ -479,7 +507,7 @@
                 <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
             </div>
 
-            <div class="card">
+            <div class="card fadeindown delay-3">
                 <div class="anchor" id="team"></div>
                 <h1>our team</h1>
                 <div class="profile-card">
@@ -489,7 +517,8 @@
                         <p class="text-accent">position at tesu</p>
                         <p>we're a new-age law firm specialising in startup and investor advisory, venture capital
                             funding, debt financing, intellectual property protection, and negotiating high-value
-                            contracts</p>                    </div>
+                            contracts</p>
+                    </div>
                 </div>
                 <div class="profile-card">
                     <img class="profile-photo" src="pranav.jpg" alt="Raghav Bansal">
@@ -511,7 +540,6 @@
     <script>
         function closePopup() {
             document.getElementById('disclaimerPopup').style.display = 'none';
-            typeWriter();
         }
 
         function copyEmail() {
@@ -584,30 +612,9 @@
             }
         }
 
-        // clock
-
-        // Just noticed accessing localStorage is banned from codepen, so disabling saving theme to localStorage
-
-        const deg = 6;
-        const hour = document.querySelector(".hour");
-        const min = document.querySelector(".min");
-        const sec = document.querySelector(".sec");
-
-        const setClock = () => {
-            let day = new Date();
-            let hh = day.getHours() * 30;
-            let mm = day.getMinutes() * deg;
-            let ss = day.getSeconds() * deg;
-
-            hour.style.transform = `rotateZ(${hh + mm / 12}deg)`;
-            min.style.transform = `rotateZ(${mm}deg)`;
-            sec.style.transform = `rotateZ(${ss}deg)`;
-        };
-
         // first time
-        setClock();
-        // Update every 1000 ms
-        setInterval(setClock, 1000);
+        typeWriter();
+
 
     </script>
 </body>
