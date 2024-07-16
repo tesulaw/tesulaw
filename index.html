@@ -89,6 +89,7 @@
         h2 {
             font-size: 36px;
             margin-block-end: -0.3em;
+            margin-block-start: -0.25em;
         }
 
         h1,
@@ -357,12 +358,12 @@
 
         @media (max-width: 720px) {
 
-            .mobile-only {
-                display: block;
-            }
-
             .desktop-only {
                 display: none;
+            }
+
+            .mobile-only {
+                display: block;
             }
 
             .layout {
@@ -385,9 +386,7 @@
                 height: auto;
             }
 
-            .popup {
-
-            }
+            .popup {}
 
             .popup-content {
                 font-size: 15px;
@@ -509,8 +508,9 @@
                         debt financing, intellectual property protection, and negotiating high-value contracts.
                     <li>We help new and established businesses, founders, investors, and artists who are looking for
                         early or mid-stage legal representation.
-                        <span class="mobile-only"><li>get in touch</li></span>
-                        <span class="mobile-only"><br>contact@tesulaw.com</span>
+                        <span class="mobile-only">
+                    <li>get in touch</li></span>
+                    <span class="mobile-only"><br>contact@tesulaw.com</span>
                 </ul>
             </div>
 
@@ -531,7 +531,11 @@
                     <div class="profile-text">
                         <h2>Raghav Bansal</h2>
                         <p class="text-accent">position at tesu</p>
-                        <p>Raghav is experienced in civil and commercial litigation, contractual disputes, and arbitration. He also frequently represents startups and investors in debt and equity transactions and advising on their daily business needs. At tesu, he utilises his vast experience in commercial disputes to eliminate ambiguities in contracts at the drafting stage.</p>
+                        <p>Raghav is experienced in civil and commercial litigation, contractual disputes, and
+                            arbitration. He also frequently represents startups and investors in debt and equity
+                            transactions and advising on their daily business needs. At tesu, he utilises his vast
+                            experience in commercial disputes to eliminate ambiguities in contracts at the drafting
+                            stage.</p>
                     </div>
                 </div>
                 <div class="profile-card">
@@ -539,7 +543,9 @@
                     <div class="profile-text">
                         <h2>Pranav Butalia</h2>
                         <p class="text-accent">position at tesu</p>
-                        <p>Pranav specialises in drafting and negotiating high value contracts, particularly in heavily-regulated sectors. He is also experienced in in civil and commercial litigation, and frequently advises clients on the impact of court rulings on their businesses.</p>
+                        <p>Pranav specialises in drafting and negotiating high value contracts, particularly in
+                            heavily-regulated sectors. He is also experienced in in civil and commercial litigation, and
+                            frequently advises clients on the impact of court rulings on their businesses.</p>
                     </div>
                 </div>
             </div>
@@ -552,6 +558,14 @@
     <script>
         function closePopup() {
             document.getElementById('disclaimerPopup').style.display = 'none';
+            localStorage.setItem('popupShown', 'true');
+        }
+
+        window.onload = function() {
+            var popupShown = localStorage.getItem('popupShown');
+            if (popupShown === 'true') {
+            document.getElementById('disclaimerPopup').style.display = 'none';
+            }
         }
 
         function copyEmail() {
