@@ -237,7 +237,7 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            text-align: center;
+            text-align: justify;
             z-index: 1000;
         }
 
@@ -568,14 +568,6 @@
     <script>
         function closePopup() {
             document.getElementById('disclaimerPopup').style.display = 'none';
-            localStorage.setItem('popupShown', 'true');
-        }
-
-        window.onload = function() {
-            var popupShown = localStorage.getItem('popupShown');
-            if (popupShown === 'true') {
-            document.getElementById('disclaimerPopup').style.display = 'none';
-            }
         }
 
         function copyEmail() {
