@@ -38,6 +38,10 @@
             --popup-color: #1f1f1f;
         }
 
+        a{
+            color: var(--accent-color);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -91,13 +95,13 @@
         }
 
         h1 {
-            font-size: 44px;
+            font-size: 32px;
             margin-block-start: 0;
             margin-block-end: 0.2em;
         }
 
         h2 {
-            font-size: 36px;
+            font-size: 28px;
             margin-block-end: -0.3em;
             margin-block-start: -0.25em;
         }
@@ -512,7 +516,7 @@
 
                 <ul class="fadeindown delay-1">
                     <li>Tesu Law is a law firm that gets <span id="domain"> </span></li>
-                    <li>We're a new-age law firm experienced in, among others - startup and investor advisory, venture
+                    <li>We're a new age law firm experienced in, among others—startup and investor advisory, venture
                         capital funding,
                         debt financing, intellectual property protection, and negotiating high-value contracts.
                     <li>We help new and established businesses, founders, investors, and artists who are looking for
@@ -524,7 +528,7 @@
                 <div class="anchor" id="contact"></div>
                 <h1>Contact Us</h1>
                 <hr>
-                <p>Get in touch with us at <span class="text-accent" id="email">contact@tesulaw.com</span></p>
+                <p>Get in touch with us at <a href="mailto:contact@tesulaw.com" class="text-accent" id="email">contact@tesulaw.com</a></p>
                 <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
                 <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
             </div>
@@ -604,7 +608,7 @@
         // }
 
         var typeBox = document.getElementById("domain");
-        var texts = ["tech.", "business.", "art.", "finance."];
+        var texts = ["technology.", "business.", "art.", "finance."];
         var currentTextIndex = 0;
         var currentText = texts[currentTextIndex];
         var i = 0;
