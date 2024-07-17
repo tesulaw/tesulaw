@@ -11,7 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Tesu Law">
-    <meta property="og:description" content="A new-age law firm experienced in startup and investor advisory, venture capital funding, debt financing, intellectual property protection, and negotiating high-value contracts.">
+    <meta property="og:description"
+        content="A new-age law firm experienced in startup and investor advisory, venture capital funding, debt financing, intellectual property protection, and negotiating high-value contracts.">
     <meta property="og:image" content="https://tesulaw.com/og-image.jpg">
     <meta property="og:url" content="https://tesulaw.com">
     <title>Tesu Law</title>
@@ -38,7 +39,7 @@
             --popup-color: #1f1f1f;
         }
 
-        a{
+        a {
             color: var(--accent-color);
         }
 
@@ -65,7 +66,6 @@
             font-optical-sizing: auto;
             font-weight: 300;
             line-height: 1.4;
-            margin-right: 40px;
         }
 
         .landing-header {
@@ -287,10 +287,10 @@
         .card {
             padding: 32px;
             max-width: 720px;
-            margin: 40px 0;
+            margin: 24px;
         }
 
-        .card-bg{
+        .card-bg {
             background: var(--card-bg);
         }
 
@@ -380,18 +380,16 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1000px) {
 
             .desktop-only {
                 display: none;
             }
 
-            .mobile-only {
-                display: block;
-            }
-
             .layout {
                 flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
             }
 
             .left-container {
@@ -409,6 +407,7 @@
                 background: var(--white);
                 margin: 8px;
                 height: auto;
+                max-width: 720px;
             }
 
             .popup {}
@@ -421,7 +420,6 @@
 
             body {
                 background: none;
-                margin-right: 0;
             }
 
             html {
@@ -457,9 +455,9 @@
                 flex-direction: column;
             }
 
-            .profile-photo{
+            .profile-photo {
                 width: 100%;
-                max-width: 480px;
+                max-width: 400px;
                 height: auto;
                 margin-bottom: 28px;
             }
@@ -469,6 +467,19 @@
             }
         }
 
+        @media (max-width: 500px) {
+
+            .mobile-only {
+                display: block;
+            }
+
+            .layout {
+                flex-direction: column;
+                align-items: left;
+                margin-bottom: 0;
+            }
+
+        }
     </style>
 </head>
 
@@ -515,7 +526,8 @@
                 <div class="anchor" id="about"></div>
 
                 <ul class="fadeindown delay-1">
-                    <li>Tesu Law is a law firm that <span class="mobile-only"></span>gets <span id="domain"> </span></li>
+                    <li>Tesu Law is a law firm that <span class="mobile-only"></span>gets <span id="domain"> </span>
+                    </li>
                     <li>We're a new age law firm experienced in, among others—startup and investor advisory, venture
                         capital funding,
                         debt financing, intellectual property protection, and negotiating high-value contracts.
@@ -554,7 +566,8 @@
                 <div class="anchor" id="contact"></div>
                 <h1>Contact Us</h1>
                 <hr>
-                <p>Write to us at <a href="mailto:contact@tesulaw.com" class="text-accent" id="email">contact@tesulaw.com</a> or call +91 99530 16904</p>
+                <p>Write to us at <a href="mailto:contact@tesulaw.com" class="text-accent"
+                        id="email">contact@tesulaw.com</a> or call +91 99530 16904</p>
                 <a class="button" href="mailto:contact@tesulaw.com">Send Email</a>
                 <div class="button" id="copyemail" onclick="copyEmail()">Copy Email ID</div>
             </div>
