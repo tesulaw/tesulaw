@@ -2,12 +2,6 @@
 <html lang="en">
 
 <head>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
     <link rel="stylesheet" href="clock.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +36,7 @@
             --white: #fff;
             --card-bg: #F5F5F5;
             --page-bg: #FFF;
-            --popup-color: rgba(255, 255, 255, 0.75);
+            --popup-color: #1f1f1f;
         }
 
         a {
@@ -74,16 +68,9 @@
             line-height: 1.4;
         }
 
-        header {
-            display: flex;
-            position: fixed;
-            align-items: center;
-            width: 720px;
-            left: calc(50vh - 360px);
-        }
-
         .landing-header {
             text-wrap: pretty;
+            margin-top: 120px;
             margin-left: -3px;
             color: var(--text-color-light);
         }
@@ -98,7 +85,6 @@
 
         .logo {
             max-width: 240px;
-            margin: 20px 0 0 14px;
         }
 
         .anchor {
@@ -131,6 +117,11 @@
             font-weight: 400;
         }
 
+        header {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+        }
 
         .header-item {
             color: var(--text-color);
@@ -178,9 +169,19 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 200px;
+            width: 400px;
             flex-basis: var(--left-width);
+            background: var(--gradient);
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .right-container {
+            margin-left: 400px;
+            display: flex;
+            flex-direction: column;
         }
 
         .contact {
@@ -236,7 +237,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #000;
+            color: #fff;
             text-align: justify;
             z-index: 1000;
             font-size: 14px;
@@ -244,13 +245,13 @@
 
         .popup-content {
             position: fixed;
-            width: 700px;
+            right: 0;
+            left: 0;
+            bottom: 0;
             background: var(--popup-color);
             padding: 20px 40px 40px 40px;
             border-radius: 8px;
             margin: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid #ddd;
         }
 
         .popup button {
@@ -286,11 +287,7 @@
         .card {
             padding: 32px;
             max-width: 720px;
-            margin-bottom: 30px;
-        }
-
-        .card:first-of-type {
-            margin-bottom: 0;
+            margin: 24px;
         }
 
         .card-bg {
@@ -385,10 +382,6 @@
 
         @media (max-width: 1000px) {
 
-            .logo {
-                margin-left: -18px;
-            }
-
             .desktop-only {
                 display: none;
             }
@@ -410,22 +403,28 @@
 
             .right-container {
                 position: relative;
-                padding: 12px 36px 32px 36px;
+                padding: 20px 36px 32px 36px;
                 background: var(--white);
+                margin: 8px;
                 height: auto;
                 max-width: 720px;
             }
 
+            .popup {}
+
             .popup-content {
                 font-size: 15px;
                 margin: 20px;
-                width: auto;
             }
+
 
             body {
                 background: none;
             }
 
+            html {
+                background: var(--gradient);
+            }
 
             footer {
                 height: 48px;
@@ -470,7 +469,6 @@
 
         @media (max-width: 500px) {
 
-
             .mobile-only {
                 display: block;
             }
@@ -506,14 +504,28 @@
 
     <div class="layout">
 
-        <div class="right-container">
 
-            <img class="logo fadeindown delay-1" src="tesulaw-logo-horizontal-black-vector.svg" alt="Tesu Law Logo">
+        <div class="left-container">
+            <img class="logo" src="tesulaw-logo-horizontal-white-vector.svg" alt="Tesu Law Logo">
+            <div class="contact desktop-only">
+                <ul>
+                    <li>
+                        <b>get in touch</b>
+                        <br>contact@tesulaw.com
+                        <br>+91 99530 16904
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="right-container">
 
             <div class="card">
                 <div class="anchor" id="about"></div>
 
-                <ul class="fadeindown delay-2">
+                <ul class="fadeindown delay-1">
                     <li>Tesu Law is a law firm that <span class="mobile-only"></span>gets <span id="domain"> </span>
                     </li>
                     <li>We're a new age law firm experienced in, among others—startup and investor advisory, venture
